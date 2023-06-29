@@ -1,0 +1,37 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "words": [
+      "antd",
+      "Antd",
+      "awsconfig",
+      "datetime",
+      "grpc",
+      "hoverable",
+      "hubspot",
+      "lpdb",
+      "LPDB",
+      "LPID",
+      "NIMA",
+      "nofollow",
+      "noindex",
+      "Noto",
+      "reduxjs",
+      "referencable",
+      "Sider",
+      "tailwindcss",
+      "Vercel",
+      "unittrials",
+      "taskcompleted",
+      "taskassignconfirmed",
+      "memberrole",
+      "checkback",
+      "downloadfile",
+      "Linkify",
+      "codegen"
+  ],
+  "ignorePaths": [
+      "**/node_modules/**"
+  ],
+   "ignoreWords": ["Datas"]
+}
