@@ -17,46 +17,6 @@
     "email": "ryusuke.narita2718@gmail.com"
   },
   "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "optoid_desktop"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ],
-      "publishers": [
-        {
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "ryusuke410",
-              "name": "optoid",
-              "draft": true
-            },
-            "tagPrefix": "desktop-v"
-          }
-        }
-      ]
-    }
-  },
   "dependencies": {
     "electron-squirrel-startup": "1.0.0",
     "react": "^18.2.0",
@@ -83,5 +43,69 @@
     "eslint-plugin-react-refresh": "^0.3.4",
     "typescript": "^5.0.2",
     "vite": "^4.3.9"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "rebuildConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "optoid_desktop"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        {
+          "name": "@electron-forge/plugin-vite",
+          "config": {
+            "build": [
+              {
+                "entry": "src/main.ts",
+                "config": "vite.main.config.ts"
+              },
+              {
+                "entry": "src/preload.ts",
+                "config": "vite.preload.config.ts"
+              }
+            ],
+            "renderer": [
+              {
+                "name": "main_window",
+                "config": "vite.renderer.config.ts"
+              }
+            ]
+          }
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "ryusuke410",
+              "name": "optoid",
+              "draft": true
+            },
+            "tagPrefix": "desktop-v"
+          }
+        }
+      ]
+    }
   }
 }

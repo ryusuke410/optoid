@@ -1,7 +1,9 @@
-name: desktop-build
+name: desktop-publish
 
 on:
-  pull_request:
+  push:
+    branches:
+      - main
 
 # Cancel in progress workflows on pull_requests.
 # https://docs.github.com/en/actions/using-jobs/using-concurrency#example-using-a-fallback-value
@@ -41,7 +43,9 @@ jobs:
       - if: steps.changes.outputs.desktop == 'true'
         run: npm ci
       - if: steps.changes.outputs.desktop == 'true'
-        run: npm -w packages/optoid-desktop run make
+        run: npm -w packages/optoid-desktop run publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   on_mac:
     runs-on: macos-latest
@@ -66,7 +70,9 @@ jobs:
       - if: steps.changes.outputs.desktop == 'true'
         run: npm ci
       - if: steps.changes.outputs.desktop == 'true'
-        run: npm -w packages/optoid-desktop run make
+        run: npm -w packages/optoid-desktop run publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   on_windows:
     runs-on: windows-latest
@@ -91,4 +97,6 @@ jobs:
       - if: steps.changes.outputs.desktop == 'true'
         run: npm ci
       - if: steps.changes.outputs.desktop == 'true'
-        run: npm -w packages/optoid-desktop run make
+        run: npm -w packages/optoid-desktop run publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
