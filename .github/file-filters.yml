@@ -1,0 +1,9 @@
+desktop_ci: &desktop_ci
+  - '.github/workflows/desktop*.yml'
+
+desktop:
+  - *desktop_ci
+  - 'packages/optoid-desktop/**'
+  - 'package.json'
+  - 'package-lock.json'
+  - '.npmrc'

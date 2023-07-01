@@ -17,6 +17,46 @@
     "email": "ryusuke.narita2718@gmail.com"
   },
   "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "optoid_desktop"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "ryusuke410",
+              "name": "optoid",
+              "draft": true
+            },
+            "tagPrefix": "desktop-v"
+          }
+        }
+      ]
+    }
+  },
   "dependencies": {
     "electron-squirrel-startup": "1.0.0",
     "react": "^18.2.0",
@@ -30,12 +70,14 @@
     "@electron-forge/maker-zip": "6.2.1",
     "@electron-forge/plugin-auto-unpack-natives": "6.2.1",
     "@electron-forge/plugin-vite": "6.2.1",
+    "@electron-forge/publisher-github": "6.2.1",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "electron": "25.2.0",
+    "electron-winstaller": "5.1.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",

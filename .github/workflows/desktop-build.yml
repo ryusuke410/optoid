@@ -1,0 +1,47 @@
+name: desktop-build
+
+on:
+  push:
+    branches:
+      - master
+  # pull_request:
+
+# Cancel in progress workflows on pull_requests.
+# https://docs.github.com/en/actions/using-jobs/using-concurrency#example-using-a-fallback-value
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+# hack for https://github.com/actions/cache/issues/810#issuecomment-1222550359
+env:
+  SEGMENT_DOWNLOAD_TIMEOUT_MIN: 3
+
+# monorepo の作法
+# https://zenn.dev/matken/articles/avoid-redundant-github-actions-monorepo
+# https://github.com/actions/checkout/pull/1369
+
+jobs:
+  on_linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        sparse-checkout: |
+          .github
+          package.json
+          package-lock.json
+          .npmrc
+          packages/optoid-desktop
+    - uses: dorny/paths-filter@v2
+      id: changes
+      with:
+        token: ${{ github.token }}
+        filters: .github/file-filters.yml
+    - if: steps.changes.outputs.desktop == 'true'
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+    - if: steps.changes.outputs.desktop == 'true'
+      run: npm ci
+    - if: steps.changes.outputs.desktop == 'true'
+      run: npm run build
