@@ -109,3 +109,7 @@ https://ui-schema.bemit.codes/examples
 https://github.com/StefanTerdell/zod-to-json-schema#readme
 https://tech.fusic.co.jp/posts/2023-05-22-electron-forge-react-vite-typescript-desktop-app-setup/
 https://qiita.com/allJokin/items/76cd3f2627d1497d0a76#%E8%87%AA%E5%8B%95%E6%9B%B4%E6%96%B0%E3%81%AE%E8%A8%AD%E5%AE%9A
+
+## vender
+
+https://github.com/jeanbmar/black-moon-rewind/tree/master/packages/np-bundle

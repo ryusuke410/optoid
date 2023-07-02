@@ -35,7 +35,8 @@
   },
   "workspaces": [
     "packages/**",
-    "!packages/**/out/**"
+    "!packages/**/out/**",
+    "vender/**"
   ],
   "lint-staged": {
     "*.{js,ts,tsx}": [
