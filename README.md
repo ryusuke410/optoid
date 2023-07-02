@@ -29,7 +29,7 @@ merge します。
 
 ドラフトをリリースします。
 
-参考しにしたもの
+参考にしたもの
 
 - https://github.com/getsentry/sentry/blob/2ebe01feab863d89aa7564e6d243b6d80c230ddc/.github/file-filters.yml
 
