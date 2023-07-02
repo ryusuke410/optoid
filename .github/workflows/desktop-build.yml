@@ -28,6 +28,7 @@ jobs:
             package.json
             package-lock.json
             .npmrc
+            vender/np-bundle
             packages/optoid-desktop
       - uses: dorny/paths-filter@v2
         id: changes
@@ -53,6 +54,7 @@ jobs:
             package.json
             package-lock.json
             .npmrc
+            vender/np-bundle
             packages/optoid-desktop
       - uses: dorny/paths-filter@v2
         id: changes
@@ -78,6 +80,7 @@ jobs:
             package.json
             package-lock.json
             .npmrc
+            vender/np-bundle
             packages/optoid-desktop
       - uses: dorny/paths-filter@v2
         id: changes
