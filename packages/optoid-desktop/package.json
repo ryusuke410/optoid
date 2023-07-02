@@ -1,8 +1,8 @@
 {
   "name": "optoid-desktop",
   "productName": "optoid-desktop",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "0.0.0",
+  "description": "Desktop app for Optoid",
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",
